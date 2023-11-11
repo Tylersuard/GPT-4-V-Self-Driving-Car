@@ -10,15 +10,12 @@ import os
 time.sleep(10)
 
 # OpenAI API Key
-api_key = "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"
+api_key = "YourOpenAIKey"
 
 # Function to encode the image
 def encode_image(image_path):
     with open(image_path, "rb") as image_file:
         return base64.b64encode(image_file.read()).decode('utf-8')
-
-
-# Getting the base64 string
 
 headers = {
     "Content-Type": "application/json",
@@ -27,7 +24,7 @@ headers = {
 
 #Prime the screenshots
 for i in reversed(range(3)):
-    pyautogui.screenshot(f'screenshot{i}.png',region=(282, 148, 680, 442))
+    pyautogui.screenshot(f'screenshot{i}.png',region=(282, 148, 680, 442)) #For the screen region, set where the window of your car simulator is.
 
 while True:
     pyautogui.screenshot('screenshot0.png', region=(282, 148, 680, 442))
